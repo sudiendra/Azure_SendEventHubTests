@@ -20,7 +20,7 @@ namespace EHTUnitTests
         [TestMethod]
         public void ConnectionTestwithEmptyString()
         {
-            EventHubClient eventHubClient = Program.BuildConnectionString("test"); 
+            EventHubClient eventHubClient = Program.BuildConnectionString(string.Empty); 
         }
     }
 }

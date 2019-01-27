@@ -15,7 +15,7 @@ namespace EventHubTests
 
         public static EventHubClient BuildConnectionString(string connectionString)
         {
-            if(connectionString != null)
+            if(!(String.IsNullOrEmpty(connectionString)))
             {
                 return EventHubClient.CreateFromConnectionString(connectionString);
             }
@@ -28,11 +28,16 @@ namespace EventHubTests
         private static async Task MainAsync(string[] args)
         {
             eventHubClient = BuildConnectionString(connectionString);
+            if (eventHubClient != null)
+            {
+                await SendMessagesToEventHub(10);
 
-            await SendMessagesToEventHub(10);
-
-            await eventHubClient.CloseAsync();
-
+                await eventHubClient.CloseAsync();
+            }
+            else
+            {
+                Console.WriteLine("Connection string is null");
+            }
             Console.WriteLine("Press ENTER to exit.");
             Console.ReadLine();
         }

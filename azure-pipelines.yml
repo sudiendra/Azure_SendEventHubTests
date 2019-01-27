@@ -17,6 +17,11 @@ variables:
 steps:
 - task: NuGetToolInstaller@0
 
+- task: InstallAppleCertificate@2
+  inputs:
+    certSecureFile: signassembly.pfx
+    certPwd: temp@123
+
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '$(solution)'

@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace EventHubTests
 {
-    public class Program
+    public static class Program
     {
         private static EventHubClient eventHubClient;
-        public static string filePath = @"c:\temp\testeventhub.txt";
-        public static string connectionString = Secretlookup.GetKey(filePath);
+        internal static string filePath = @"c:\temp\testeventhub.txt";
+        internal static string connectionString = Secretlookup.GetKey(filePath);
 
         public static EventHubClient BuildConnectionString(string connectionString)
         {
@@ -25,7 +25,7 @@ namespace EventHubTests
             }
         }
         
-        private static async Task MainAsync(string[] args)
+        private static async Task MainAsync()
         {
             eventHubClient = BuildConnectionString(connectionString);
             if (eventHubClient != null)
@@ -64,7 +64,7 @@ namespace EventHubTests
         }
         static void Main(string[] args)
         {
-            MainAsync(args).GetAwaiter().GetResult();
+            MainAsync().GetAwaiter().GetResult();
         }
     }
 }

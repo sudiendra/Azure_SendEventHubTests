@@ -7,7 +7,7 @@ using System.IO;
 
 namespace EventHubTests
 {
-    public class Secretlookup
+    public static class Secretlookup
     {
         public static string GetKey(string filePath)
         {

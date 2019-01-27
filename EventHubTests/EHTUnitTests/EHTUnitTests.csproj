@@ -44,6 +44,12 @@
     <CodeAnalysisRuleSet>CodeAnalysisRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisTreatWarningsAsErrors>True</CodeAnalysisTreatWarningsAsErrors>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>SignAssembly.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Azure.Amqp, Version=2.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Azure.Amqp.2.3.5\lib\net45\Microsoft.Azure.Amqp.dll</HintPath>
@@ -114,6 +120,7 @@
     <None Include="app.config" />
     <None Include="CodeAnalysisRules.ruleset" />
     <None Include="packages.config" />
+    <None Include="SignAssembly.pfx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EventHubTests\EventHubTests.csproj">

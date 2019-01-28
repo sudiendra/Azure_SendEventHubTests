@@ -21,6 +21,9 @@ steps:
   inputs:
     restoreSolution: '$(solution)'
 
+- powershell:  New-SelfSignedCertificate -CertstoreLocation Cert:\LocalMachine\My -DnsName "signassembly"
+  displayName: installsigncert
+
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
